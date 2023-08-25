@@ -1,4 +1,3 @@
-"use client";
 import Navbar from "@/components/molecule/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
