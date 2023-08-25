@@ -40,7 +40,7 @@ const Navbar = () => {
   if (!mounted) return null;
 
   return (
-    <div className="container mx-auto flex flex-row justify-between items-center w-full py-5">
+    <div className="container mx-auto flex flex-row justify-between items-center w-full py-5 px-5">
       <Link href="/" className="text-xl font-semibold tracking-wider">
         CRUD MENN
       </Link>

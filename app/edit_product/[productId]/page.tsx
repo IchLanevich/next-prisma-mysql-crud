@@ -13,15 +13,15 @@ export default function Home({ params }: { params: { productId: string } }) {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await API.createProduct(name, parseInt(price));
+    await API.updateProduct(Number(id), name, parseInt(price));
     router.push("/");
   };
 
   useEffect(() => {
     const getProductById = async () => {
-      const response = await axios.get(`http://localhost:4000/products/${id}`);
-      setName(response.data.name);
-      setPrice(response.data.price);
+      const response = await axios.get(`/api/products/${id}`);
+      setName(response.data.product.name);
+      setPrice(response.data.product.price);
     };
     getProductById();
   }, [id]);
