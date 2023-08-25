@@ -1,8 +1,8 @@
-import { updateProduct } from "./../../backend/controllers/ProductController";
+import { POST } from "./../app/api/products/route";
 import axios from "axios";
 import { mutate } from "swr";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "http://localhost:3000/api";
 
 type Product = {
   id: number;
@@ -12,46 +12,56 @@ type Product = {
 };
 
 type APIType = {
-  getProducts: () => Promise<Product[]>;
+  getProducts: () => Promise<{ products: Product[] }>;
+
   getProductById: (id: string) => Promise<Product>;
+
   createProduct: (name: string, price: string | number) => Promise<void>;
+
   updateProduct: (
     id: number,
     name: string,
     price: string | number
   ) => Promise<void>;
+
   deleteProduct: (id: number) => Promise<void>;
 };
 
 const API: APIType = {
   getProducts: async () => {
-    const response = await axios.get(`${API_URL}/products`);
+    const response = await axios.get(`/api/products`);
+
     return response.data;
   },
 
   getProductById: async (id) => {
-    const response = await axios.get(`${API_URL}/products/${id}`);
+    const response = await axios.get(`/api/products?id=${id}`);
+
     return response.data;
   },
 
   createProduct: async (name, price) => {
-    await axios.post(`http://localhost:4000/products`, {
+    await axios.post(`/api/products`, {
       name: name,
       price: price,
     });
+
     mutate("products");
   },
 
   updateProduct: async (id, name, price) => {
-    await axios.patch(`${API_URL}/products/${id}`, {
+    await axios.patch(`/api/products`, {
+      id: id,
       name: name,
-      price: price,
+      price: Number(price),
     });
+
     mutate("products");
   },
 
   deleteProduct: async (id) => {
-    await axios.delete(`${API_URL}/products/${id}`);
+    await axios.delete(`/api/products?id=${id}`);
+
     mutate("products");
   },
 };
