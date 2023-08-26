@@ -35,7 +35,7 @@ const ProductList = () => {
 
   return (
     <div className="flex flex-col mt-5 w-full items-center justify-center mx-auto">
-      <div className="w-full px-1 md:px-0 md:max-w-5xl">
+      <div className="w-full md:max-w-5xl">
         <div className="flex justify-end w-full add-new">
           <Link
             href="/add_product"

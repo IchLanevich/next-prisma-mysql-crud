@@ -1,11 +1,11 @@
-import ProductList from "../molecule/ProductList";
-
-const Main = () => {
-  return (
-    <div>
-      <ProductList />
-    </div>
-  );
+const Main = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className: string;
+}) => {
+  return <main className={className}>{children}</main>;
 };
 
 export default Main;
