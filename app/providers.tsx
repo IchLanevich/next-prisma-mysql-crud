@@ -3,5 +3,9 @@
 import { ThemeProvider } from "next-themes";
 
 export const Providers = ({ children }: any) => {
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
+  return (
+    <ThemeProvider defaultTheme="system" attribute="class">
+      {children}
+    </ThemeProvider>
+  );
 };
