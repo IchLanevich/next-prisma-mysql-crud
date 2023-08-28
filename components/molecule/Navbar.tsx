@@ -42,7 +42,26 @@ const Navbar = () => {
       <Link href="/" className="text-xl font-semibold tracking-wider">
         CRUD MENN
       </Link>
-      <div className="">{handleThemeIcon(theme!)}</div>
+      {/* <div className="">{handleThemeIcon(theme!)}</div> */}
+      <div className="">
+        {theme === "light" ? (
+          <button
+            className={`p-2 rounded`}
+            aria-label="Light Mode button"
+            onClick={() => setTheme("dark")}
+          >
+            <LightThemeIcon />
+          </button>
+        ) : (
+          <button
+            className={`p-2 rounded`}
+            aria-label="Dark Mode button"
+            onClick={() => setTheme("light")}
+          >
+            <DarkThemeIcon />
+          </button>
+        )}
+      </div>
     </div>
   );
 };
