@@ -35,10 +35,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setMounted(true);
-    console.log("mounted");
   }, [theme]);
-
-  if (!mounted) return "";
 
   return (
     <div className="container mx-auto flex flex-row justify-between items-center w-full py-5 px-5">
