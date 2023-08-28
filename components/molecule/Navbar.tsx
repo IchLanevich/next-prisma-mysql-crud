@@ -10,26 +10,30 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false);
 
   const handleThemeIcon = (theme: string) => {
-    if (theme === "light") {
-      return (
-        <button
-          className={`p-2 rounded`}
-          aria-label="Light Mode button"
-          onClick={() => setTheme("dark")}
-        >
-          Light
-        </button>
-      );
-    } else if (theme === "dark") {
-      return (
-        <button
-          className={`p-2 rounded`}
-          aria-label="Dark Mode button"
-          onClick={() => setTheme("light")}
-        >
-          Dark
-        </button>
-      );
+    if (mounted) {
+      if (theme === "light") {
+        return (
+          <button
+            className={`p-2 rounded`}
+            aria-label="Light Mode button"
+            onClick={() => setTheme("dark")}
+          >
+            <LightThemeIcon />
+          </button>
+        );
+      } else if (theme === "dark") {
+        return (
+          <button
+            className={`p-2 rounded`}
+            aria-label="Dark Mode button"
+            onClick={() => setTheme("light")}
+          >
+            <DarkThemeIcon />
+          </button>
+        );
+      }
+    } else {
+      console.warn("Theme not mounted");
     }
   };
 
@@ -42,26 +46,7 @@ const Navbar = () => {
       <Link href="/" className="text-xl font-semibold tracking-wider">
         CRUD MENN
       </Link>
-      {/* <div className="">{handleThemeIcon(theme!)}</div> */}
-      <div className="">
-        {theme === "light" ? (
-          <button
-            className={`p-2 rounded`}
-            aria-label="Light Mode button"
-            onClick={() => setTheme("dark")}
-          >
-            <LightThemeIcon />
-          </button>
-        ) : (
-          <button
-            className={`p-2 rounded`}
-            aria-label="Dark Mode button"
-            onClick={() => setTheme("light")}
-          >
-            <DarkThemeIcon />
-          </button>
-        )}
-      </div>
+      <div className="">{handleThemeIcon(theme!)}</div>
     </div>
   );
 };
