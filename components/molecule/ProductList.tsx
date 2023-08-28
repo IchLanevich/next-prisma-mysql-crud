@@ -2,6 +2,7 @@ import API from "@/api/api";
 import useSWR from "swr";
 import ProductItem from "../atomic/ProductItem";
 import Link from "next/link";
+import Navbar from "./Navbar";
 
 type Product = {
   id: number;
@@ -20,12 +21,18 @@ const ProductList = () => {
   if (error) return <div>Failed to load</div>;
 
   if (isLoading) {
-    return <h1 className="font-semibold tracking-wide">Loading...</h1>;
+    return (
+      <div className="py-2 px-4 mt-10 rounded bg-slate-100 dark:bg-slate-700 w-fit text-slate-900 dark:text-white animate-pulse">
+        Loading data...
+      </div>
+    );
   }
 
   const renderTable = (products: Product[] | undefined) => {
     if (!products) {
-      return <h1 className="font-semibold tracking-wide">Loading...</h1>;
+      return (
+        <p className="font-semibold tracking-wide text-2xl">Data not found!</p>
+      );
     }
 
     return products.map((product) => {
@@ -46,15 +53,15 @@ const ProductList = () => {
         </div>
         <div className="mt-3 rounded-md shadow-sm">
           <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-300 border-b border-gray-400">
+            <thead className="text-xs text-gray-700 dark:text-gray-400 uppercase dark:bg-slate-800 bg-gray-300 border-b dark:border-b-slate-900 border-gray-400 dark:border-gray-500">
               <tr>
-                <th className="px-1 py-2 md:py-3 text-center border-r border-gray-400 rounded-tl">
+                <th className="px-1 py-2 md:py-3 text-center border-r dark:border-r-slate-900 border-gray-400 rounded-tl">
                   Id
                 </th>
-                <th className="px-3 py-2 md:px-6 md:py-3 border-r border-gray-400">
+                <th className="px-3 py-2 md:px-6 md:py-3 border-r dark:border-r-slate-900 border-gray-400">
                   Product Name
                 </th>
-                <th className="px-3 py-2 md:px-6 md:py-3 border-r border-gray-400">
+                <th className="px-3 py-2 md:px-6 md:py-3 border-r dark:border-r-slate-900 border-gray-400">
                   Price
                 </th>
                 <th className="px-1 py-2 text-center rounded-tr">Action</th>

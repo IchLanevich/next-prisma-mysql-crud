@@ -12,8 +12,8 @@ export default function Home() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await API.createProduct(name, parseInt(price));
     router.push("/");
+    await API.createProduct(name, parseInt(price));
   };
 
   return (
