@@ -9,7 +9,7 @@ const Navbar = () => {
   const { theme, setTheme }: any = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  const handleThemeIcon = (theme: any) => {
+  const handleThemeIcon = (theme: string) => {
     if (theme === "light") {
       return (
         <button
@@ -40,7 +40,7 @@ const Navbar = () => {
   if (!mounted) return null;
 
   return (
-    <div className="container mx-auto flex flex-row justify-between items-center w-full py-5 px-5">
+    <div className="container mx-auto bg-white dark:bg-slate-800 flex flex-row justify-between items-center w-full py-5 px-5">
       <Link href="/" className="text-xl font-semibold tracking-wider">
         CRUD MENN
       </Link>

@@ -31,7 +31,7 @@ export default function Home({ params }: { params: { productId: string } }) {
       <div id="formWrapper" className="mt-14 w-full max-w-2xl">
         <form
           onSubmit={(e) => handleSubmit(e)}
-          className="p-8 bg-slate-100 dark:bg-slate-700 rounded-md"
+          className="p-8 bg-white dark:bg-slate-700 rounded-md"
         >
           <div className="flex flex-col gap-3 inputs">
             <div className="flex flex-col gap-1 form-control">
@@ -49,7 +49,7 @@ export default function Home({ params }: { params: { productId: string } }) {
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
-                className="px-4 py-2 bg-white border-2 rounded-md focus:ring-2 focus:outline-none text-slate-800 dark:bg-slate-500 dark:text-white dark:focus:ring-slate-300 dark:border-slate-400"
+                className="px-4 py-2 bg-slate-100 border-2 rounded-md focus:ring-2 focus:outline-none text-slate-800 dark:bg-slate-500 dark:text-white dark:focus:ring-slate-300 dark:border-slate-400"
               />
             </div>
             <div className="flex flex-col gap-1 form-control">
@@ -68,7 +68,7 @@ export default function Home({ params }: { params: { productId: string } }) {
                   setPrice(e.target.value);
                 }}
                 placeholder="Product Price"
-                className="px-4 py-2 bg-white border-2 rounded-md focus:ring-2 focus:outline-none text-slate-800 dark:bg-slate-500 dark:text-white dark:focus:ring-slate-300 dark:border-slate-400"
+                className="px-4 py-2 bg-slate-100 border-2 rounded-md focus:ring-2 focus:outline-none text-slate-800 dark:bg-slate-500 dark:text-white dark:focus:ring-slate-300 dark:border-slate-400"
               />
             </div>
           </div>
